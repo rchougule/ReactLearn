@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/searchBar';
 import VideoList from './components/videoList';
-const API_KEY = 'AIzaSyCqZxGne6_e6NAb2l7jtQ3LcsUmK7IanaQ';
+import VideoDetail from './components/videoDetail';
+
+const API_KEY = 'AIzaSyDuGBFyPBRB5LR1lmNyTw5baJ8yf8s6GiU';
 
 // create a new component. this component should produce some html
 
@@ -14,7 +16,7 @@ class App extends Component {
 
     this.state = { videos : [] };
 
-    YTSearch({ key: API_KEY, term: 'sketching'}, (videos) => {
+    YTSearch({ key: API_KEY, term: 'surf'}, (videos) => {
       this.setState({ videos }); //automatically changes to this.setState({ videos: videos }), when key and value are same
     });
   };
@@ -23,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
+        <VideoDetail video={this.state.videos[0]}/>
         <VideoList videos={this.state.videos}/>
       </div>
     );
