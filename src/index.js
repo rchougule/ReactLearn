@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   onVideoSearch(term) {
-    YTSearch({ key: API_KEY, term: term}, (videos) => {
+    YTSearch({ key: API_KEY, term: term, maxResults: 13}, (videos) => {
       this.setState({
           videos: videos,
           selectedVideo: videos[0]
